@@ -1,11 +1,14 @@
-import React from 'react'
+import Link from 'next/link'
+import articleStyles from '../styles/article.module.scss'
 
-const ArticleItem = ({ body, id, title }) => {
+const ArticleItem = ({ id, body, title }) => {
   return (
-    <div>
-      <h3>{title}</h3>
-      <p>{body}</p>
-    </div>
+    <Link href="/article/[id]" as={`/article/${id}`}>
+      <a className={articleStyles.card}>
+        <h3>{title} &rarr;</h3>
+        <p>{body}</p>
+      </a>
+    </Link>
   )
 }
 
